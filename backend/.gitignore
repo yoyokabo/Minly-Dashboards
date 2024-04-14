@@ -131,6 +131,6 @@ dist
 .pnp.*
 
 #Media
-backend/src/media
+src/media/*
 
 

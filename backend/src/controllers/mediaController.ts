@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import PostModel from "../models/post";
 
-export const getMedia: RequestHandler = async (req,res,next) => {
+export const getMedia: RequestHandler = async (req,res,next) => { //Media requests handler
   const id = req.params.id
 
   const post = await PostModel.findById(id)

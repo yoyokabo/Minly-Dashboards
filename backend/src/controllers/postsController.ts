@@ -2,10 +2,10 @@ import { RequestHandler } from "express";
 import PostModel from "../models/post";
 import UserModel from "../models/user";
 import createHttpError from "http-errors";
-import mongoose, { Schema } from "mongoose";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
 import env from "../utils/validateENV";
-
+import { unlink } from 'node:fs';
 
 const secretKey = env.JWT_SECRET;
 
@@ -15,9 +15,11 @@ interface CreatePostBody {
     token: string,
     type: string
 }
+
 interface UpdatePostParams{
     postId: String,
 }
+
 interface UpdatePostBody {
     userId: string,
     caption?: string,
@@ -25,8 +27,6 @@ interface UpdatePostBody {
 }
 
 export const createPost: RequestHandler<unknown, unknown, CreatePostBody, unknown> = async (req, res, next) => {
-    console.log(req.file)
-    console.log(req.body)
     try {
         if (!req.body.caption) {
             throw createHttpError(400, "Posts must have a caption!");
@@ -54,7 +54,7 @@ export const createPost: RequestHandler<unknown, unknown, CreatePostBody, unknow
 
 export const getPosts: RequestHandler = async (req,res,next) => {
     try {
-        const posts = (await PostModel.find().exec()).reverse();
+        const posts = (await PostModel.find().exec()).reverse();  // Reverse Chronological Order
         res.status(200).json(posts); 
     } catch (error) {
         next(error);
@@ -66,7 +66,7 @@ export const getPost: RequestHandler = async (req,res,next) => {
     const postId = req.params.postId;
 
     try {
-        if (!mongoose.isValidObjectId(postId)){
+        if (!mongoose.isValidObjectId(postId)){    // Validates is type of mongo ID
             throw createHttpError(400, "Invalid Post ID")
         }
 
@@ -113,7 +113,7 @@ export const likePost: RequestHandler<UpdatePostParams, unknown , UpdatePostBody
             let user = await UserModel.findById(userId)
             if (user){
                 if (post.users.includes(user._id)){
-                    post.users[post.users.indexOf(user._id)] = new mongoose.Types.ObjectId("000000000000000000000000");
+                    post.users[post.users.indexOf(user._id)] = new mongoose.Types.ObjectId("000000000000000000000000");  // TODO : Change this ugly imp
                     post.likes = post.likes - 1;
                 }
                 else {
@@ -143,10 +143,12 @@ export const deletePost: RequestHandler = async (req,res,next) => {  // Delete f
         }
 
         const post = await PostModel.findById(postId).exec();
-        
         await PostModel.findByIdAndDelete(postId).exec();
 
-
+        if (post?.filepath){
+        await unlink(process.cwd()+"/src/media"+post?.filepath,()=>{
+            console.log("deleted")
+        })}
         res.sendStatus(204);
     } catch (error) {
         
