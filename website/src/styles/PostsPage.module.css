@@ -1,13 +1,12 @@
 .post {
-    height: auto;
-    min-width: 175px;
-    transition: box-shadow .2 ease-in-out;
-    cursor: pointer
-
+  height: auto;
+  min-width: 175px;
+  transition: box-shadow 0.2 ease-in-out;
+  cursor: pointer;
 }
 
-
-
-.post:hover{
-    box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+.post:hover {
+  box-shadow:
+    rgba(255, 255, 255, 0.05) 0px 6px 24px 0px,
+    rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
 }

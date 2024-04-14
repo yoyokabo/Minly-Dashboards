@@ -1,17 +1,17 @@
 .formBody {
-    color: #21262d;
+  color: #21262d;
 }
 
 .formText {
-    color: white;
+  color: white;
 }
 
 .formMuted {
-    opacity: 0.5;
-    color: white;
-    margin-top: 5px;
+  opacity: 0.5;
+  color: white;
+  margin-top: 5px;
 }
 
-.formItems{
-    margin: 10px;
+.formItems {
+  margin: 10px;
 }

@@ -1,48 +1,44 @@
 .postCard {
-    background-color: #2e2f2f;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-
+  background-color: #2e2f2f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cardContent {
-    height: 10%;
+  height: 10%;
 }
 
-
-
 .postText {
-    color: white;
-    margin: 3%;
-    left: 5%;
-
+  color: white;
+  margin: 3%;
+  left: 5%;
 }
 .video {
   max-width: 300;
   max-height: 500;
 }
 .button {
-    margin-left: 10px;
-    transition: button-shadow .5 ease-in-out;
+  margin-left: 10px;
+  transition: button-shadow 0.5 ease-in-out;
 }
 
 .button:hover {
-    box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+  box-shadow:
+    rgba(255, 255, 255, 0.05) 0px 6px 24px 0px,
+    rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
 }
 
-
 body {
-    margin: 0;
-    background: #21262d;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+  margin: 0;
+  background: #21262d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

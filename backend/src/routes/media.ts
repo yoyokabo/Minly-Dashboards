@@ -1,6 +1,6 @@
-import * as mediaController from "../controllers/mediaController"
+import * as mediaController from "../controllers/mediaController";
 import express from "express";
-import upload from "../middleware/multerStorage"
+import upload from "../middleware/multerStorage";
 
 const router = express.Router();
 
