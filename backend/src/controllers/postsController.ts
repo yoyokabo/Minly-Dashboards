@@ -84,54 +84,56 @@ export const getPost: RequestHandler = async (req,res,next) => {
 }
 
 
-export const updatePost: RequestHandler<UpdatePostParams, unknown , UpdatePostBody, unknown> = async (req,res,next) => {
+export const likePost: RequestHandler<UpdatePostParams, unknown , UpdatePostBody, unknown> = async (req,res,next) => {
     const postId = req.params.postId;
     const token = req.body.token;
-    const payload = jwt.verify(req.body.token,secretKey)
+    
+        
+    try {
+        const payload = jwt.verify(req.body.token,secretKey)
         if (payload instanceof Object){
             const userId = payload._id
 
-    try {
-        if (!mongoose.isValidObjectId(postId)){
-            throw createHttpError(400, "Invalid Post ID")
-        }
-
-        if(!userId){
-            throw createHttpError(400,"Like must have a User")
-
-        }
-
-        let post = await PostModel.findById(postId).exec();
-        
-        
-        if (!post) {
-            throw createHttpError(404, "Post not found")
-        }
-
-        let user = await UserModel.findById(userId)
-        if (user){
-            if (post.users.includes(user._id)){
-                post.users[post.users.indexOf(user._id)] = new mongoose.Types.ObjectId("000000000000000000000000");
-                post.likes = post.likes - 1;
+            if (!mongoose.isValidObjectId(postId)){
+                throw createHttpError(400, "Invalid Post ID")
             }
-            else {
-                post.users.push(user._id);
-                post.likes = post.likes + 1;
+
+            if(!userId){
+                throw createHttpError(400,"Like must have a User")
+
             }
-            const updatedPost = await post.save();
-            res.status(200).json(post.likes);
-                
+
+            let post = await PostModel.findById(postId).exec();
             
-        }
+            
+            if (!post) {
+                throw createHttpError(404, "Post not found")
+            }
+
+            let user = await UserModel.findById(userId)
+            if (user){
+                if (post.users.includes(user._id)){
+                    post.users[post.users.indexOf(user._id)] = new mongoose.Types.ObjectId("000000000000000000000000");
+                    post.likes = post.likes - 1;
+                }
+                else {
+                    post.users.push(user._id);
+                    post.likes = post.likes + 1;
+                }
+                const updatedPost = await post.save();
+                res.status(200).json(post.likes);
+                    
+            
+        }}
 
 
         
     } catch (error) {
         next(error)
     }
-}}
+}
 
-export const deletePost: RequestHandler = async (req,res,next) => {
+export const deletePost: RequestHandler = async (req,res,next) => {  // Delete file
     const postId = req.params.postId;
 
     try {

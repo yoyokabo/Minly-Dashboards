@@ -10,7 +10,7 @@ router.get("/:postId", PostsController.getPost);
 
 router.post("/",upload.single("file"), PostsController.createPost);
 
-router.patch("/:postId", PostsController.updatePost)
+router.patch("/:postId", PostsController.likePost)
 
 router.delete("/:postId", PostsController.deletePost)
 

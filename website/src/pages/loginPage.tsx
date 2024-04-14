@@ -20,6 +20,9 @@ export const LoginPage = () => {
           console.log('API response:', response.data);
           setSuccess('Logged in successfully!')
           localStorage.setItem("token",response.data)
+          setTimeout(function() {
+            window.location.href = '/home'
+          },1500);
       } catch (error) {
         if (axios.isAxiosError(error)) {
             let message : string = error.request.response
