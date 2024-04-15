@@ -26,11 +26,12 @@ The application currently requires an Android emulator due to iOS's default rest
     * MongoDB installed and running
 
 3. **Installation:**
+   Make Sure your terminal is in the correct folder when installing dependancies for each of the projects
     ```bash
     npm install --legacy-peer-deps
     ```
 
-4. **Starting the Backend:**
+5. **Starting the Backend:**
     ```bash
     npm start
     ```
