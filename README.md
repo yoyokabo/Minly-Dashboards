@@ -168,7 +168,7 @@ Response:
 **Website:**
 
 **Installation:**
-    ```bash
+    ```
     npm install 
     npm start
     ```
@@ -181,7 +181,7 @@ Response:
 **Mobile App:**
 
 **Installation:**
-    ```bash
+    ```
     npm install 
     npm start
     ```
