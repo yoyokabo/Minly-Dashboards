@@ -2,6 +2,7 @@
 
 This project served as a fantastic learning journey for me, venturing into a new tech stack and expanding my web development knowledge. I particularly enjoyed working with TypeScript - the linter's ability to point out edge case saved me many times.
 I was also reminded of how much I hate css , I truly have a new found appreciation for front end development never through centering an image on my screen would turn into a 30 minute task, but hey thats css.
+Without further ado I present you with some barebones documentation.
 
 **Important Note:**
 
