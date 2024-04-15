@@ -167,6 +167,11 @@ Response:
 
 **Website:**
 
+**Installation:**
+    ```bash
+    npm install 
+    npm start
+    ```
 * **Pages:**
     * Home: Displays all posts, captions, likes, timestamps, and a like button (if logged in)
     * Register: Registers a new user (no immediate login)
@@ -174,6 +179,12 @@ Response:
     * Posts: Allows users to create posts with captions and media (requires a valid JWT token)
 
 **Mobile App:**
+
+**Installation:**
+    ```bash
+    npm install 
+    npm start
+    ```
 
 * **Landing Page:**
     * Greets the user and prompts for login
