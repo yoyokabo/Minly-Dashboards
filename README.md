@@ -8,7 +8,8 @@ Without further ado I present you with some barebones documentation.
 
 The application currently requires an Android emulator due to iOS's default restriction on HTTP requests (HTTPS only is supported). I successfully ran it using the Android Studio emulator with Pixel 8 Pro (Android 13 Tiramisu). Feel free to refer to the image below to replicate my settings:
 
-![image](https://github.com/yoyokabo/Minly-MediaSharing/assets/51433565/a688d9d7-51c7-4bfa-b20a-cea7963415ec)
+
+![image](https://github.com/yoyokabo/Minly-MediaSharing/assets/51433565/84a9a2f3-c638-4894-bd8d-81170cca1081)
 
 
 **Tech Stack:**
