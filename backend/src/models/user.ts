@@ -1,7 +1,6 @@
 import { InferSchemaType, Schema, model } from "mongoose";
-import Post from "./post";
 
-const userSchema = new Schema(
+const userSchema = new Schema( // TODO : Add Validation
   {
     username: { type: String, required: true },
     email: { type: String, required: true },

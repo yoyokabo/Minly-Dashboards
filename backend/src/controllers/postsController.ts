@@ -17,7 +17,7 @@ interface CreatePostBody {
 }
 
 interface UpdatePostParams {
-  postId: String;
+  postid: String;
 }
 
 interface UpdatePostBody {
@@ -93,7 +93,7 @@ export const likePost: RequestHandler<
   UpdatePostBody,
   unknown
 > = async (req, res, next) => {
-  const postId = req.params.postId;
+  const postId = req.params.postid;
   const token = req.body.token;
 
   try {
@@ -136,7 +136,7 @@ export const likePost: RequestHandler<
 
 export const deletePost: RequestHandler = async (req, res, next) => {
   // Deletes file
-  const postId = req.params.postId;
+  const postId = req.params.postid;
 
   try {
     if (!mongoose.isValidObjectId(postId)) {

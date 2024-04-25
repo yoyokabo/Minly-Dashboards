@@ -22,7 +22,7 @@ const Post = ({ post, className }: PostProps) => {
 
   const likeHandler = async () => {
     try {
-      const response = await axios.patch(`api/posts/${_id}`, {
+      const response = await axios.put(`api/posts/${_id}/likes`, {
         token: localStorage.getItem("token"),
       });
       console.log(response);

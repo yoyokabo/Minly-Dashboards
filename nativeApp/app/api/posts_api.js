@@ -12,7 +12,7 @@ export const posts_get = async () => {
 
 export const posts_like = async (id, token) => {
   try {
-    const result = await ApiManager.patch("/posts/" + id, { token });
+    const result = await ApiManager.put("/posts/" + id + "/likes", { token });
 
     return result;
   } catch (error) {
@@ -28,13 +28,10 @@ export const posts_create = async (data, token) => {
     formData.append("type", data.type);
     formData.append("caption", data.caption);
     console.log(formData);
-    const result = await ApiManager.post("/posts/", formData, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
+    const result = await ApiManager.post("/posts/", formData)
     return result;
-  } catch (error) {
+    }
+   catch (error) {
     return error;
   }
 };

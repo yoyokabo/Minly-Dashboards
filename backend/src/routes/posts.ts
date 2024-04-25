@@ -6,12 +6,12 @@ const router = express.Router();
 
 router.get("/", PostsController.getPosts);
 
-router.get("/:postId", PostsController.getPost);
+router.get("/:postid", PostsController.getPost);
 
 router.post("/", upload.single("file"), PostsController.createPost);
 
-router.patch("/:postId", PostsController.likePost);
+router.put("/:postid/likes", PostsController.likePost);
 
-router.delete("/:postId", PostsController.deletePost);
+router.delete("/:postid", PostsController.deletePost);
 
 export default router;

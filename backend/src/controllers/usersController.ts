@@ -1,5 +1,4 @@
-import { RequestHandler, request } from "express";
-import mongoose, { Schema } from "mongoose";
+import { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import UserModel from "../models/user";
 import env from "../utils/validateENV";
@@ -29,7 +28,7 @@ export const createUser: RequestHandler<
 > = async (req, res, next) => {
   try {
     if (!req.body.username) {
-      throw createHttpError(400, "Username Invalid");
+      throw createHttpError(400, "SECURITY RISK");
     }
     if (!req.body.password) {
       throw createHttpError(400, "Password Invalid");

@@ -1,6 +1,6 @@
 import { InferSchemaType, Schema, model } from "mongoose";
 
-const postSchema = new Schema(
+const postSchema = new Schema( // TODO :Add Validation
   {
     caption: { type: String, required: true },
     filepath: { type: String },
