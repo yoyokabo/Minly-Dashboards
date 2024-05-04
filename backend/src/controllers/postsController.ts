@@ -16,6 +16,11 @@ interface CreatePostBody {
   type: string;
 }
 
+interface GetPostsQuery {
+  page: number
+
+}
+
 interface UpdatePostParams {
   postid: String;
 }
@@ -57,9 +62,15 @@ export const createPost: RequestHandler<
   }
 };
 
-export const getPosts: RequestHandler = async (req, res, next) => {
+export const getPosts: RequestHandler<unknown, unknown, unknown, GetPostsQuery> = async (req, res, next) => {
   try {
-    const posts = (await PostModel.find().exec()).reverse(); // Reverse Chronological Order
+    let page = req.query.page || 0
+    let postsPerPage = 2
+    const posts = (await PostModel.find()
+    .sort({createdAt:-1})
+    .skip(postsPerPage*page)
+    .limit(postsPerPage)
+    .exec())
     res.status(200).json(posts);
   } catch (error) {
     next(error);
